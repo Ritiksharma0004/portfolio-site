@@ -1,0 +1,212 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap");
+
+:root {
+  --ink: #0d1420;
+  --panel: #131c2b;
+  --panel-border: #223148;
+  --line: #2f4864;
+  --cyan: #5cc8d7;
+  --cyan-bright: #7fdbe8;
+  --coral: #e8724c;
+  --coral-bright: #f28762;
+  --text: #e7ecf3;
+  --muted: #7c8ba3;
+
+  --font-display: "Space Grotesk", sans-serif;
+  --font-body: "Space Grotesk", sans-serif;
+  --font-mono: "JetBrains Mono", monospace;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: var(--ink);
+  background-image:
+    linear-gradient(var(--panel-border) 1px, transparent 1px),
+    linear-gradient(90deg, var(--panel-border) 1px, transparent 1px);
+  background-size: 48px 48px;
+  background-attachment: fixed;
+  color: var(--text);
+  font-family: var(--font-body);
+}
+
+button {
+  font-family: var(--font-mono);
+}
+
+a {
+  color: var(--cyan-bright);
+}
+
+@keyframes fadeUp {
+  from {
+    opacity: 0;
+    transform: translateY(14px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulseDot {
+  0%,
+  100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.4;
+  }
+}
+
+/* ---------- Shared: nav / status pill / cta / back button ---------- */
+
+.nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 22px 32px;
+  max-width: 1100px;
+  margin: 0 auto;
+  position: relative;
+  z-index: 2;
+  animation: fadeUp 0.5s ease both;
+}
+
+.wordmark {
+  font-family: var(--font-display);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  font-size: 16px;
+}
+
+.status-pill {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  color: var(--cyan-bright);
+  letter-spacing: 0.05em;
+  background: rgba(92, 200, 215, 0.08);
+  border: 1px solid rgba(92, 200, 215, 0.25);
+  padding: 6px 12px;
+  border-radius: 100px;
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: var(--cyan-bright);
+  box-shadow: 0 0 8px var(--cyan-bright);
+  animation: pulseDot 2s ease-in-out infinite;
+}
+
+.back-btn {
+  background: var(--panel);
+  border: 1px solid var(--panel-border);
+  color: var(--text);
+  padding: 7px 14px;
+  border-radius: 8px;
+  font-size: 13px;
+  cursor: pointer;
+  transition:
+    border-color 0.2s,
+    color 0.2s;
+}
+
+.back-btn:hover {
+  border-color: var(--coral);
+  color: var(--coral-bright);
+}
+
+.cta {
+  padding: 14px 22px;
+  background: linear-gradient(135deg, var(--coral) 0%, #d9633a 100%);
+  color: #10121a;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 0.01em;
+  cursor: pointer;
+  align-self: flex-start;
+  box-shadow: 0 12px 28px -10px rgba(232, 114, 76, 0.55);
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background 0.2s ease;
+}
+
+.cta:hover {
+  background: linear-gradient(
+    135deg,
+    var(--coral-bright) 0%,
+    var(--coral) 100%
+  );
+  transform: translateY(-2px);
+  box-shadow: 0 16px 34px -10px rgba(232, 114, 76, 0.7);
+}
+
+.cta:disabled {
+  background: #2a2f3d;
+  color: var(--muted);
+  cursor: not-allowed;
+  box-shadow: none;
+  transform: none;
+}
+
+.section-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-bottom: 22px;
+}
+
+.section-title::before {
+  content: "";
+  width: 20px;
+  height: 1px;
+  background: var(--coral);
+}
+
+/* Themed scrollbar, used anywhere a component adds .themed-scroll */
+
+.themed-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: var(--panel-border) transparent;
+}
+
+.themed-scroll::-webkit-scrollbar {
+  width: 7px;
+  height: 7px;
+}
+
+.themed-scroll::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.themed-scroll::-webkit-scrollbar-thumb {
+  background: var(--panel-border);
+  border-radius: 10px;
+}
+
+.themed-scroll::-webkit-scrollbar-thumb:hover {
+  background: var(--cyan);
+}
+
+@media (max-width: 640px) {
+  .nav {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+}
