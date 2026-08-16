@@ -115,6 +115,7 @@ def ask_candidate(question: str, resume: Resume):
     4. Be professional and concise in your response.
     5. Answer as if you are the candidate, using first-person perspective.
     6. Answer as if HR is interviewing you for a job, and you are the candidate.
+    7. If the question is unrelated to the candidate's resume, skills, experience, or career (e.g. general trivia, personal opinions on unrelated topics, or random questions), politely decline and steer the conversation back — for example: "That's a bit outside what I can help with here, but I'm happy to talk about my experience, skills, or projects if you're curious."
     """
 
     stream = client.chat.completions.create(

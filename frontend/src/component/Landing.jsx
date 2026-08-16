@@ -62,12 +62,14 @@ const PROJECTS = [
     ],
   },
   {
-    name: "AI Resume Parser & Q&A Assistant",
+    name: "HireMeAI — Resume Q&A Assistant",
     stack: "Python · FastAPI · Groq API · Pydantic · pypdf",
     points: [
-      "Parses PDF resumes into structured JSON using schema-constrained LLM output.",
-      "Q&A endpoint answering natural-language questions, grounded strictly in parsed resume data.",
-      "This site — the assistant you're about to talk to.",
+      "Parses PDF resumes into structured JSON using a schema-constrained LLM pipeline built with Pydantic.",
+      "Streams answers token-by-token via a FastAPI StreamingResponse endpoint, grounded strictly in the parsed resume — no hallucinated details.",
+      "Handles resumes with inconsistent formatting by extracting information semantically rather than relying on fixed section headings.",
+      "Deployed with a React frontend and FastAPI backend, connected via a CORS-configured REST API.",
+      "Powers the 'Ask AI' assistant on this very site.",
     ],
   },
 ];
@@ -266,7 +268,9 @@ function Landing({ onOpenChat }) {
           <span className="cert-stamp">
             CLF-C02 · AWS Certified Cloud Practitioner
           </span>
-          <p className="footer-line">Thanks for visiting.</p>
+          <p className="footer-line">
+            Always building, always learning — let's connect.
+          </p>
         </section>
       </main>
     </div>
