@@ -1,7 +1,7 @@
 import { useState, useRef, useEffect } from "react";
 import "./Chat.css";
 
-const API_URL = "http://127.0.0.1:8000/chat";
+const API_URL = "https://hiremeai-backend-d3qw.onrender.com/chat";
 
 function Chat({ onBack, embedded }) {
   const [messages, setMessages] = useState([
