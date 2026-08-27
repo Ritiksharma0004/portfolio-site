@@ -5,11 +5,24 @@ const STACK_GROUPS = [
   { key: "Languages", items: ["C++", "Java", "JavaScript", "SQL"] },
   {
     key: "Backend",
-    items: ["Spring Boot", "Spring Security", "REST APIs", "Node.js"],
+    items: [
+      "Spring Boot",
+      "Spring Security",
+      "FastAPI",
+      "REST APIs",
+      "Microservices",
+    ],
   },
   { key: "Database", items: ["MySQL"] },
-  { key: "Frontend", items: ["React.js", "HTML5", "CSS3", "Tailwind"] },
-  { key: "Tools", items: ["Git", "Maven", "Postman", "DSA"] },
+  { key: "Frontend", items: ["React.js", "Tailwind"] },
+  {
+    key: "Cloud & AI",
+    items: ["AWS", "Microsoft Foundry Local", "RAG", "Vector DB"],
+  },
+  {
+    key: "Tools",
+    items: ["Git", "GitHub", "Maven", "Postman", "API Gateway", "DSA"],
+  },
 ];
 
 const WORK_EXPERIENCE = [
@@ -19,24 +32,19 @@ const WORK_EXPERIENCE = [
     period: "Aug 2025 — Present",
     groups: [
       {
-        title: "Authentication & Authorization",
+        title: "Backend & Microservices",
         points: [
-          "Implemented role-based authentication for application modules using Spring Security and JWT, securing REST endpoints across multiple user roles.",
-          "Handled token generation and validation logic to restrict access based on user permissions.",
+          "Developed and maintained backend microservices using Spring Boot and Spring Security for internal production systems.",
+          "Designed and implemented RESTful APIs, integrating them with downstream services and databases to support core application workflows.",
+          "Collaborated with cross-functional teams to build, test, and deploy Spring Boot services to production environments.",
         ],
       },
       {
-        title: "Full-Stack Feature Development",
+        title: "Applied AI — Incident Intelligence",
         points: [
-          "Contributed to production-ready features using Java, Spring Boot, and React.js, following a layered, maintainable architecture.",
-          "Built and maintained RESTful APIs consumed by internal and client-facing applications, integrating with relational databases.",
-          "Collaborated with cross-functional teams to translate business requirements into working backend and frontend implementations.",
-        ],
-      },
-      {
-        title: "Debugging & Support",
-        points: [
-          "Assisted in identifying and resolving issues in Java/Spring Boot services to support application stability.",
+          "Designed and built an AI agent using LLMs and a Retrieval-Augmented Generation (RAG) pipeline (embeddings + vector database) to detect and surface similar past production incidents, reducing manual investigation effort for on-call engineers.",
+          "Engineered root-cause analysis and pattern-detection logic comparing incoming incidents against historical high-impact cases to speed up incident triage.",
+          "Implemented early-warning alerts for incidents matching past high-severity outage patterns using MS Foundry Local and custom data schemas, enabling proactive investigation by on-call and SRE teams.",
         ],
       },
     ],
@@ -46,30 +54,29 @@ const WORK_EXPERIENCE = [
 const EDUCATION = [
   {
     role: "B.Tech, Computer Science",
-    org: "JECRC University, Jaipur — CGPA 9.21/10",
-    period: "2021 — 2025",
+    org: "JECRC University, Jaipur — CGPA 9.12/10",
+    period: "Jul 2021 — Jul 2025",
   },
 ];
 
 const PROJECTS = [
   {
-    name: "Leave Management System",
-    stack: "Java · Spring Boot · Spring Security · JPA · JWT · MySQL",
+    name: "HireMe AI — Microservices Job Portal",
+    stack:
+      "React.js · Spring Boot · Microservices · Python · Groq · RAG · Vector DB",
     points: [
-      "Secure REST API with role-based access across employee, manager, and admin roles.",
-      "JWT-based stateless authentication with token generation and session handling.",
-      "10+ REST endpoints for leave submission and approval workflows, tested in Postman.",
+      "Building a full-stack job portal with a React.js frontend and Spring Boot microservices backend, supporting Admin, Candidate, and Recruiter roles with role-based dashboards.",
+      "Designed independent microservices for Auth, Candidate, Job, and Resume domains, with an API Gateway planned to unify routing and access control.",
+      "Developing an AI-driven resume analyzer using Python, Groq, and a vector database, applying RAG to score resumes against job descriptions and surface skill/experience gaps for recruiters.",
     ],
   },
   {
-    name: "HireMeAI — Resume Q&A Assistant",
-    stack: "Python · FastAPI · Groq API · Pydantic · pypdf",
+    name: "AI-Enabled Resume Portfolio Assistant",
+    stack: "React.js · FastAPI · Groq API",
     points: [
-      "Parses PDF resumes into structured JSON using a schema-constrained LLM pipeline built with Pydantic.",
-      "Streams answers token-by-token via a FastAPI StreamingResponse endpoint, grounded strictly in the parsed resume — no hallucinated details.",
-      "Handles resumes with inconsistent formatting by extracting information semantically rather than relying on fixed section headings.",
-      "Deployed with a React frontend and FastAPI backend, connected via a CORS-configured REST API.",
-      "Powers the 'Ask AI' assistant on this very site.",
+      "Designed and built a personal portfolio site with React.js to present projects, experience, and skills in an interactive format.",
+      "Integrated a conversational AI assistant, powered by the Groq API through a FastAPI backend, that answers visitor questions about my resume in real time.",
+      "Grounded chatbot responses strictly in my actual resume data to ensure accurate, hallucination-free answers about my background.",
     ],
   },
 ];
@@ -128,10 +135,10 @@ function Landing({ onOpenChat }) {
           Ritik Sharma
         </h1>
         <p className="hero-pitch reveal" style={{ "--d": "0.2s" }}>
-          Software Engineer with 1+ year of experience in full-stack development
-          — Java, C++, and Spring Boot on the backend, React.js on the frontend.
-          Strong foundation in data structures, algorithms, and secure REST API
-          design.
+          Software Engineer with 1+ year of experience building backend
+          microservices in Java and Spring Boot, with a growing focus on applied
+          AI — LLMs, RAG pipelines, and vector databases — layered on top of
+          production systems.
         </p>
 
         <div className="meta-links reveal" style={{ "--d": "0.28s" }}>
@@ -156,7 +163,7 @@ function Landing({ onOpenChat }) {
         <div className="spec-strip reveal" style={{ "--d": "0.36s" }}>
           <div className="spec-field">
             <span className="spec-label">Role</span>
-            <span className="spec-value">Full-Stack / Backend</span>
+            <span className="spec-value">Backend / Applied AI</span>
           </div>
           <div className="spec-field">
             <span className="spec-label">Location</span>
@@ -164,7 +171,7 @@ function Landing({ onOpenChat }) {
           </div>
           <div className="spec-field">
             <span className="spec-label">Stack</span>
-            <span className="spec-value">Java · Spring Boot · React</span>
+            <span className="spec-value">Java · Spring Boot · RAG</span>
           </div>
           <div className="spec-field">
             <span className="spec-label">Status</span>
